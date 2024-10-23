@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { Clock, Users, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Target, Search, Users, Star } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +18,10 @@ const LandingPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <header className="container mx-auto px-4 py-8">
         <nav className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-red-600">TimeBank</h1>
+          <div className="flex items-center space-x-2">
+            <Target className="h-8 w-8 text-red-600" />
+            <h1 className="text-3xl font-bold">Your<span className="text-red-600">Choice</span></h1>
+          </div>
           <div>
             <button onClick={handleLogIn} className="mr-4 hover:text-red-600 transition duration-300">Log In</button>
             <button onClick={handleSignUp} className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300">Sign Up</button>
@@ -33,8 +36,8 @@ const LandingPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-5xl font-bold mb-6">Exchange Skills, Build Community</h2>
-          <p className="text-xl mb-8 text-gray-300">Join TimeBank and start trading your time and skills with others in your community.</p>
+          <h2 className="text-5xl font-bold mb-6">Find Your Perfect Service Provider</h2>
+          <p className="text-xl mb-8 text-gray-300">Post your service needs and let professionals bid for your project.</p>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -45,25 +48,25 @@ const LandingPage: React.FC = () => {
 
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12">
           <FeatureCard
-            icon={<Clock size={48} className="text-red-600" />}
-            title="Time is Currency"
-            description="Exchange your skills for others' time, creating a fair and balanced economy."
+            icon={<Search size={48} className="text-red-600" />}
+            title="Post Your Needs"
+            description="Create detailed service requests and let professionals come to you."
           />
           <FeatureCard
             icon={<Users size={48} className="text-red-600" />}
-            title="Build Connections"
-            description="Meet like-minded individuals and strengthen your community bonds."
+            title="Compare Bids"
+            description="Review multiple bids and choose the best provider for your needs."
           />
           <FeatureCard
             icon={<Star size={48} className="text-red-600" />}
-            title="Develop Skills"
-            description="Learn new skills from experts in your community and share your own expertise."
+            title="Quality Service"
+            description="Work with verified professionals and get the service you deserve."
           />
         </div>
       </main>
 
       <footer className="container mx-auto px-4 py-8 mt-16 text-center text-gray-400">
-        <p>&copy; 2024 TimeBank. All rights reserved.</p>
+        <p>&copy; 2024 YourChoice. All rights reserved.</p>
       </footer>
     </div>
   );

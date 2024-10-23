@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { Home, Search, MessageSquare, User, Clock, Bell } from 'lucide-react';
+import { Home, Search, MessageSquare, User, Clock, Bell, Target } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const location = useLocation();
@@ -14,13 +14,16 @@ const Navigation: React.FC = () => {
     <nav className="bg-gray-800 shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link to="/dashboard" className="text-2xl font-bold text-red-600">TimeBank</Link>
+          <Link to="/dashboard" className="flex items-center space-x-2">
+            <Target className="h-8 w-8 text-red-600" />
+            <span className="text-2xl font-bold text-white">Your<span className="text-red-600">Choice</span></span>
+          </Link>
           <div className="flex space-x-4">
             <NavLink to="/dashboard" icon={<Home />} text="Dashboard" active={isActive('/dashboard')} />
             <NavLink to="/search" icon={<Search />} text="Explore" active={isActive('/search')} />
             <NavLink to="/messages" icon={<MessageSquare />} text="Messages" active={isActive('/messages')} />
             <NavLink to="/profile" icon={<User />} text="Profile" active={isActive('/profile')} />
-            <NavLink to="/transactions" icon={<Clock />} text="Transactions" active={isActive('/transactions')} />
+            <NavLink to="/transactions" icon={<Clock />} text="History" active={isActive('/transactions')} />
             <NavLink to="/notifications" icon={<Bell />} text="Notifications" active={isActive('/notifications')} badge={unreadNotifications} />
           </div>
         </div>
